@@ -8,4 +8,6 @@
     <h1>${msg}</h1>
 
 </body>
+   <a href="/webapp/">Go Back</a>
+
 </html>

@@ -4,16 +4,39 @@ import com.ssk.Bookbindings.BookStore;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.servlet.ModelAndView;
 
 import java.util.ArrayList;
 import java.util.List;
 
 @Controller
 public class BookController {
+
+    @GetMapping("/")
+    public ModelAndView indexPage() {
+
+        ModelAndView mav = new ModelAndView();
+        mav.setViewName("index");
+//        mav.setViewName("welcome");
+//        mav.setViewName("wish");
+
+        return mav;
+    }
+
     @GetMapping("/book")
     public String getBookDetails(Model model) {
 
-        //BookStore bookobj = new BookStore (101, "Spring", 450.00);
+        BookStore bookobj = new BookStore(101, "Spring", 450.00);
+
+        model.addAttribute("book", bookobj);
+
+        return "book";
+
+
+    }
+
+    @GetMapping("/books")
+    public String getBooksDeatails(Model model) {
 
         List<BookStore> bookobjlist = new ArrayList<>();
 
@@ -26,8 +49,6 @@ public class BookController {
 
         model.addAttribute("booklist", bookobjlist);
 
-        return "book";
-
-
+        return "books";
     }
 }

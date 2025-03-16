@@ -1,28 +1,17 @@
-<%@ page contentType="text/html; charset=UTF-8" language="java" %>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
+<!DOCTYPE html>
 <html>
 <head>
-    <title>Book Store List</title>
+    <title>Welcome JSP Page</title>
 </head>
 <body>
-    <h2>Book Store List</h2>
-    <table border="1">
-        <thead>
-            <tr>
-                <th>Book ID</th>
-                <th>Book Name</th>
-                <th>Price</th>
-            </tr>
-        </thead>
-        <tbody>
-            <!-- Using EL to loop through the list of books -->
-            <c:forEach var="book" items="${booklist}">
-                <tr>
-                    <td>${book.bookID}</td>
-                    <td>${book.bookName}</td>
-                    <td>${book.bookPrice}</td>
-                </tr>
-            </c:forEach>
-        </tbody>
-    </table>
+    <h1>BOOK data</h1>
+
+    BookID : ${book.bookID} </br>
+    BookName : ${book.bookName} </br>
+    BookPrice : ${book.bookPrice} </br>
+
+   <a href="/webapp/">Go Back</a>
+
 </body>
 </html>
